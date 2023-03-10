@@ -14,3 +14,9 @@ Script_4.R: it calculates the gene overlap among significant modules using jacca
 Script_5.R: it calculates jaccard indexes of trait ancestries (EFO) to use as benchmark for trait to trait distances.
 Script_IBD_set1_SEED.R: modify network expansion for the IBD analysis using the curated list. 
 Script_IBD_set2_SEED.R: modify network expansion for the IBD analysis using the L2G score list.
+
+Barrio-Hernandez and colleagues used interaction data from the Open Targets platform to implement their method of network expansion
+(Ref: https://github.com/saezlab/OTAR-BioCypher)
+(https://www.biorxiv.org/content/10.1101/2021.07.19.452924v1). A dump file of the Neo4j knowledge graph they used is available at http://ftp.ebi.ac.uk/pub/databases/intact/various/ot_graphdb/current/.
+
+Once successfully installed, porting the OTAR graph can be attempted by running a local (or remotely accesssible) instance of the OTAR graph dump in Neo4j and executing the Python script at scripts/barrio_hernandez_script.py. This will connect to BioCypher using the adapter (from adapters/barrio_hernandez_adapter.py) and write the BioCypher-compatible structured data to the biocypher-out directory. You can find a version of the neo4j-admin import command for the processed data in each individual output folder, under the file name neo4j-admin-import-call.sh, which simply needs to be executed in the home directory of the target database. More information about the BioCypher package can be found at https://biocypher.org.
